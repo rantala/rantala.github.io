@@ -634,3 +634,37 @@ discovered an "ugly workaround" in Intel HD Audio drivers that applies to
 recent (Skylake+) systems. We also learned little bit about Pulseaudio, and got
 a chance to experimentally patch the kernel, and use various Linux tracing and
 performance analysis tools.
+
+
+## Update May 2021
+
+Comment from user *L29Ah*:
+
+*The following modprobe.d workaround seems to fix the insane busy waiting on my X210:*
+```
+options snd_hda_intel position_fix=1
+```
+
+&mdash;
+
+Indeed the driver offers various parameters that may be helpful:
+```
+$ modinfo snd_hda_intel
+description:  Intel HDA driver
+[...]
+parm:   index:Index value for Intel HD audio interface. (array of int)
+parm:   id:ID string for Intel HD audio interface. (array of charp)
+parm:   enable:Enable Intel HD audio interface. (array of bool)
+parm:   model:Use the given board model. (array of charp)
+parm:   position_fix:DMA pointer read method. (-1 = system default, 0 = auto,
+           1 = LPIB, 2 = POSBUF, 3 = VIACOMBO, 4 = COMBO, 5 = SKL+, 6 = FIFO).
+parm:   bdl_pos_adj:BDL position adjustment offset. (array of int)
+parm:   probe_mask:Bitmask to probe codecs (default = -1). (array of int)
+parm:   probe_only:Only probing and no codec initialization. (array of int)
+parm:   jackpoll_ms:Ms between polling for jack events (default = 0,
+           using unsol events only) (array of int)
+parm:   single_cmd:Use single command to communicate with codecs
+           (for debugging only). (bint)
+parm:   enable_msi:Enable Message Signaled Interrupt (MSI) (bint)
+[...]
+```
