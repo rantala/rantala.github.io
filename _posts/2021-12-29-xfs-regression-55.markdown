@@ -198,3 +198,6 @@ $ git log --oneline v5.4..v5.5 | grep -i xfs.*getdents
 ![Supermicro server](/assets/Supermicro_SBI-7228R-T2X_blade_server.jpg)
 
 *[Image by Dmitry Nosachev - Own work, CC BY-SA 4.0](https://commons.wikimedia.org/w/index.php?curid=46899884)*
+
+‣ To support my work and to motivate me:
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="trantala" data-color="#FFDD00" data-emoji="☕"  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
